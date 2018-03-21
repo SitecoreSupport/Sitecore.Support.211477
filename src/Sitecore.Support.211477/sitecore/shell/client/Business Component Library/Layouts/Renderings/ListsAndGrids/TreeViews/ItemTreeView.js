@@ -39,7 +39,9 @@ define(['sitecore', 'dynatree'], function (_sc) {
             { name: "showHiddenItems", defaultValue: false },
             { name: "contentLanguage", defaultValue: "en" },
             { name: "showIconImage", defaultValue: true },
-            { name: "database", defaultValue: "" }
+            { name: "database", defaultValue: "" },
+             //bug #211477
+            { name: "uidisplayname", defaultValue: "" }
         ],
 
         events:
@@ -79,6 +81,8 @@ define(['sitecore', 'dynatree'], function (_sc) {
                 this.model.set("showIconImage", this.$el.attr("data-sc-option-showiconimage") === undefined || this.$el.attr("data-sc-option-showiconimage") === "true");
                 this.model.set("templates", this.$el.attr("data-sc-templates"));
                 this.model.set("database", this.$el.attr("data-sc-database"));
+                //bug #211477
+                this.model.set("uidisplayname", this.$el.attr("data-sc-uidisplayname"));
 
                 var items = this.$el.attr("data-sc-rootitem");
                 if (!items) {
@@ -205,7 +209,14 @@ define(['sitecore', 'dynatree'], function (_sc) {
                 _.each(childrenNodes, function (item) {
                     var newNode = {};
                     newNode.rawItem = item;
-                    newNode.title = item.$displayName;
+                    //bug #211477
+                    if (this.model.get("uidisplayname")) {
+                        newNode.title = item.$displayName;
+                    }
+                    else {
+                        newNode.title = item.itemName;
+                    }
+                    //end bug #211477
                     newNode.key = item.itemId;
                     if (self.model.get("showSitecoreIcons")) {
                         self.appendLanguageParameter(item);

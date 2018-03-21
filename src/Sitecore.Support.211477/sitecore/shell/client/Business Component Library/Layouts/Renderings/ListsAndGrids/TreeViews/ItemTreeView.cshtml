@@ -71,6 +71,9 @@
     userControl.SetAttribute("data-sc-contentlanguage", contentLanguage);
     userControl.SetAttribute("data-sc-templates", templates);
     userControl.SetAttribute("data-sc-database", databaseName);
+    //bug #211477
+    userControl.SetAttribute("data-sc-uidisplayname", Sitecore.Shell.UserOptions.View.UseDisplayName);
+    //end bug #211477
 
     userControl.AddOptionAttribute("selectedItems");
     userControl.AddOptionAttribute("checkedItems");
