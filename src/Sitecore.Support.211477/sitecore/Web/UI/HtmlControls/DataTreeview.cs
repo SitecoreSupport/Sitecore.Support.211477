@@ -25,7 +25,9 @@
       parent.Controls.Add(dataTreeNode);
       dataTreeNode.Expandable = item.HasChildren;
       dataTreeNode.Expanded = false;
-      dataTreeNode.Header = item.DisplayName;
+      #region Modified code
+      dataTreeNode.Header = ItemExtension.GetUIDisplayName(item);
+      #endregion
       dataTreeNode.Icon = item.Appearance.Icon;
       dataTreeNode.ID = Sitecore.Web.UI.HtmlControls.Control.GetUniqueID("T");
       dataTreeNode.ItemID = item.Paths.LongID;

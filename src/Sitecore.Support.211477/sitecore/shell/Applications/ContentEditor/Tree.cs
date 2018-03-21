@@ -11,7 +11,9 @@
   /// <summary>
   /// Represents a Tree field.
   /// </summary>
-  public class Tree : TreePicker
+  #region Modified code
+  public class Tree : Sitecore.Support.Web.UI.HtmlControls.TreePicker
+#endregion
   {
     private string _fieldname;
 

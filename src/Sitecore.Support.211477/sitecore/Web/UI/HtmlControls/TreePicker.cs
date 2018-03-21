@@ -32,7 +32,9 @@
       Sitecore.Context.ClientPage.AddControl(hiddenHolder, scrollbox);
       scrollbox.Width = 300;
       scrollbox.Height = 400;
-      DataTreeview dataTreeview = new DataTreeview();
+      #region Modified code
+      Sitecore.Support.Web.UI.HtmlControls.DataTreeview dataTreeview = new Sitecore.Support.Web.UI.HtmlControls.DataTreeview();
+      #endregion
       dataTreeview.Class = "scTreeview scPopupTree";
       dataTreeview.DataContext = this.DataContext;
       dataTreeview.ID = this.ID + "_treeview";
