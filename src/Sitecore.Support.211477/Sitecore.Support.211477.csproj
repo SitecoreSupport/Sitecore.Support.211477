@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sitecore\shell\Applications\ContentEditor\Dialogs\TreeListExEditor\TreeListExEditorForm.cs" />
     <Compile Include="sitecore\shell\Applications\ContentEditor\FieldHelpers\TreeListFilterQueryBuilder.cs" />
     <Compile Include="sitecore\shell\Applications\ContentEditor\Tree.cs" />
     <Compile Include="sitecore\shell\Applications\ContentEditor\TreeList.cs" />
@@ -106,6 +107,7 @@
     </Content>
     <Content Include="sitecore\shell\client\Business Component Library\Layouts\Renderings\ListsAndGrids\TreeViews\ItemTreeView.js" />
     <Content Include="sitecore\shell\Controls\TreeviewEx\TreeviewEx.aspx" />
+    <Content Include="sitecore\shell\Override\TreeListExEditor.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
