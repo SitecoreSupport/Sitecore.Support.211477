@@ -17,9 +17,10 @@
     /// <summary></summary>
     protected XmlControl Dialog;
 
+    #region Modified code
     /// <summary></summary>
-    protected TreeList TreeList;
-
+    protected Sitecore.Support.Shell.Applications.ContentEditor.TreeList TreeList;
+    #endregion
     /// <summary>
     /// Raises the load event.
     /// </summary>
