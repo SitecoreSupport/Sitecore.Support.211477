@@ -14,7 +14,9 @@
     protected override string GetHeaderValue(Item item)
     {
       Assert.ArgumentNotNull(item, "item");
-      string text = string.IsNullOrEmpty(this.DisplayFieldName) ? item.DisplayName : ((BaseItem)item)[this.DisplayFieldName];
+      #region Modified code
+      string text = string.IsNullOrEmpty(this.DisplayFieldName) ? ItemExtension.GetUIDisplayName(item) : ((BaseItem)item)[this.DisplayFieldName];
+      #endregion
       return string.IsNullOrEmpty(text) ? item.DisplayName : text;
     }
   }

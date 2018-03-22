@@ -25,7 +25,9 @@
     {
       Assert.ArgumentNotNull(sender, "sender");
       Assert.ArgumentNotNull(e, "e");
-      TreeviewEx treeviewEx = MainUtil.GetBool(WebUtil.GetQueryString("mr"), false) ? new MultiRootTreeview() : new TreeviewEx();
+      #region Modified code
+      Sitecore.Support.Web.UI.WebControls.TreeviewEx treeviewEx = new Sitecore.Support.Web.UI.WebControls.TreeviewEx();
+      #endregion
       this.Controls.Add(treeviewEx);
       treeviewEx.ID = WebUtil.GetQueryString("treeid");
       string queryString = WebUtil.GetQueryString("db", Client.ContentDatabase.Name);

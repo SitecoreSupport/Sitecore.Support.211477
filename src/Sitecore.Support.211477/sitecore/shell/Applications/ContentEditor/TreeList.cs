@@ -352,7 +352,9 @@
           Class = "scScrollbox scContentControlTree"
         };
         border3.Controls.Add(scrollbox);
-        TreeviewEx treeviewEx = new TreeviewEx
+        #region Modified code
+        Sitecore.Support.Web.UI.WebControls.TreeviewEx treeviewEx = new Sitecore.Support.Web.UI.WebControls.TreeviewEx
+        #endregion
         {
           ID = this.ID + "_all",
           DblClick = this.ID + ".Add",
@@ -542,7 +544,9 @@
     protected virtual string GetHeaderValue(Item item)
     {
       Assert.ArgumentNotNull(item, "item");
-      string text = string.IsNullOrEmpty(this.DisplayFieldName) ? item.DisplayName : ((BaseItem)item)[this.DisplayFieldName];
+      #region Modified code
+      string text = string.IsNullOrEmpty(this.DisplayFieldName) ? ItemExtension.GetUIDisplayName(item) : ((BaseItem)item)[this.DisplayFieldName];
+      #endregion
       return string.IsNullOrEmpty(text) ? item.DisplayName : text;
     }
 
